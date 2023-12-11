@@ -29,4 +29,24 @@ int main(){
         printf("gpa?");
         scanf("%f",&students[i].gpa);
     }
+        printf("\ninframtion about students: \n");
+    for(int i =0; i < numStudents;++i){
+        printStudent(students[i]);
+        printf("\n");
+    }
+
+    FILE *file = fopen("students.txt","w");
+    if( file != NULL)
+    {
+        for (int i =0; i<numStudents; ++i){
+            fprintf(file,"%s %d %.2f\n",students[i].name, students[i].age,students[i].gpa);
+        }
+        fclose(file);
+        printf("записано в students.txt\n");
+    } else {
+        printf("Error \n");
+    }
+
+    free(students);
+    return 0;
 }
