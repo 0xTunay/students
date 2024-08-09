@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Student {
+typedef struct {
     char name[30];
     int age;
     float gpa;
-};
+}Students;
 
-void printStudent(struct Student student)
+void printStudent(Students student)
 {
     printf("Name : %s\n", student.name);
     printf("age: %d\n", student.age);
@@ -16,7 +16,7 @@ void printStudent(struct Student student)
 
 int main(){
     int numStudents = 3;
-    struct Student *students = (struct Student*)malloc(numStudents * sizeof (struct Student));
+    Students *students = (Students*)malloc(numStudents * sizeof (Students));
 
 
     for(int i = 0;i < numStudents;++i)
